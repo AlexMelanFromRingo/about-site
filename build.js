@@ -506,7 +506,22 @@ ${footer(0)}`;
 function buildTgPosts() {
   const dir = path.join(ROOT, "_tg");
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  let index = "# Посты для Telegram-канала\n\nПо одному файлу на проект. Готовые тексты для публикации.\n\n";
+
+  // персональная закрывающая строка по статусу проекта
+  const closers = {
+    done:     "Проект закончен и работает. Код открыт — заходите, разбирайте, пользуйтесь.",
+    active:   "Проект ещё в работе — пилю дальше, каждый коммит делает его лучше.",
+    concept:  "Пока это прототип: идея рабочая, но до полировки руки ещё дойдут.",
+    learning: "Это из раннего, ещё учебное. Оставляю честно — с таких штук всё и начиналось.",
+    broken:   "Скажу честно: проект недопилен и местами сломан. Но идея и часть кода живые.",
+    archived: "Проект в архиве — больше не развиваю, но пусть остаётся частью истории.",
+  };
+
+  let index =
+    "# Посты для Telegram-канала\n\n" +
+    "По одному файлу на проект — готовые тексты в формате дев-блога.\n" +
+    `Всего постов: ${projects.length}. Сгруппированы по категориям.\n`;
+
   const byCat = {};
   for (const p of projects) (byCat[p.category] = byCat[p.category] || []).push(p);
 
@@ -514,29 +529,35 @@ function buildTgPosts() {
     const list = byCat[c.id];
     if (!list) continue;
     index += `\n## ${c.name.ru}\n`;
-    for (const p of sortProjects(list)) {
-      const cat = catById(p.category);
+    const sorted = sortProjects(list);
+    for (const p of sorted) {
       const langs = (p.langs || []).join(", ");
-      const tags = (p.tags || []).map((t) => "#" + t.replace(/[^a-zA-Zа-яА-Я0-9]/g, "")).join(" ");
-      let md = `**${p.name}**${p.aka ? ` (${p.aka})` : ""}\n`;
-      md += `_${cat.name.ru}_\n\n`;
-      let story = p.tg;
-      if (!story) {
-        const paras = (p.body && p.body.ru) || [];
-        story = paras.join("\n\n") || (p.short && p.short.ru) || "";
-      }
-      md += story + "\n\n";
+      const tags = (p.tags || [])
+        .map((t) => "#" + t.replace(/[^A-Za-zА-Яа-яЁёІіЇїЄєҐґ0-9]/g, ""))
+        .join(" ");
+      const related = sorted.filter((x) => x.id !== p.id).slice(0, 3).map((x) => x.name);
+      const paras = (p.body && p.body.ru) || [(p.short && p.short.ru) || ""];
+
+      let md = `🔹 ${p.name}${p.aka ? ` — ${p.aka}` : ""}\n`;
+      md += `${c.name.ru} · ${statuses[p.status].label.ru}`;
+      if (p.year) md += ` · ${p.year}`;
+      md += `\n\n${"—".repeat(20)}\n\n`;
+      md += paras.join("\n\n") + "\n\n";
+
       if (p.features && p.features.ru && p.features.ru.length) {
-        md += "Что внутри:\n";
-        for (const f of p.features.ru) md += `• ${f}\n`;
+        md += "⚙️ Что внутри:\n";
+        for (const f of p.features.ru) md += `— ${f}\n`;
         md += "\n";
       }
-      if (langs) md += `🛠 Стек: ${langs}\n`;
-      if (p.github) md += `🔗 Исходники: ${p.github}\n`;
-      if (tags) md += `\n${tags}`;
-      md += "\n";
+      if (langs) md += `🛠 Стек: ${langs}.\n`;
+      if (related.length) md += `🧩 Рядом по теме у меня: ${related.join(", ")}.\n`;
+      md += `\n${closers[p.status] || ""}\n`;
+      if (p.github) md += `\n👉 Исходники: ${p.github}\n`;
+      else md += `\n👉 Исходники пока не выкладывал в открытый доступ.\n`;
+      if (tags) md += `\n${tags}\n`;
+
       fs.writeFileSync(path.join(dir, p.id + ".md"), md);
-      index += `- [${p.name}](${p.id}.md)\n`;
+      index += `- ${p.name} — \`${p.id}.md\`\n`;
     }
   }
   fs.writeFileSync(path.join(dir, "_INDEX.md"), index);

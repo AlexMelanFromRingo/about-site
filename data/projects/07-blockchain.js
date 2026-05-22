@@ -115,7 +115,7 @@ module.exports = [
   },
   {
     id: "mnemonicgen", name: "Mnemonic Generator", aka: "Генератор мнемоник",
-    category: "blockchain", status: "done", year: 2024,
+    category: "blockchain", status: "concept", year: 2024,
     langs: ["Java", "Rust"], tags: ["BIP39", "Мнемоники"],
     short: {
       ru: "Генератор мнемонических фраз BIP39 — на Java и на Rust.",
@@ -145,7 +145,7 @@ module.exports = [
   },
   {
     id: "btc-addresses", name: "BTC Addresses", aka: "Биткоин-адреса",
-    category: "blockchain", status: "done", year: 2024,
+    category: "blockchain", status: "concept", year: 2024,
     langs: ["Python", "Rust"], tags: ["Bitcoin", "Адреса", "Криптография"],
     short: {
       ru: "Эксперименты с генерацией и устройством биткоин-адресов.",
@@ -160,7 +160,7 @@ module.exports = [
   },
   {
     id: "deepseek-crypto", name: "DeepSeek Cryptocurrency", aka: "Крипта-эксперимент",
-    category: "blockchain", status: "concept", year: 2025,
+    category: "blockchain", status: "done", year: 2025,
     langs: ["Python", "Flask"], tags: ["Блокчейн", "Эксперимент"],
     short: {
       ru: "Экспериментальная криптовалюта с веб-интерфейсом — ещё один заход в тему блокчейна.",

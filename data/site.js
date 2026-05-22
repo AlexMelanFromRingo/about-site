@@ -205,6 +205,7 @@ const statuses = {
   active:   { color: "#4c8dff", label: { ru: "В развитии", en: "In progress", uk: "У розвитку" } },
   concept:  { color: "#a98bff", label: { ru: "Прототип",   en: "Prototype",   uk: "Прототип" } },
   learning: { color: "#ffb454", label: { ru: "Учебный",    en: "Learning",    uk: "Навчальний" } },
+  broken:   { color: "#e5736b", label: { ru: "Требует доработки", en: "Needs work", uk: "Потребує доробки" } },
   archived: { color: "#8b98a9", label: { ru: "В архиве",   en: "Archived",    uk: "В архіві" } },
 };
 

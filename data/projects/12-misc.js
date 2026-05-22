@@ -244,4 +244,64 @@ module.exports = [
       uk: ["Комплект оверлеїв для стримінгу через OBS у світлій темі «цифрового мозку»: екрани AFK і BRB, «скоро почнемо», завершення стріму, анімація нейронів.", "Кожен оверлей — самостійна HTML-сторінка як браузерне джерело, плюс готова до імпорту колекція сцен."],
     },
   },
+  {
+    id: "good-training-language", name: "Хороший Учебный Язык", aka: "ХУЯ",
+    category: "emu", status: "done", year: 2026,
+    langs: ["Rust", "fasm", "x86-64"], tags: ["Язык программирования", "Компилятор", "Форк", "Кириллический синтаксис"],
+    github: "https://github.com/AlexMelanFromRingo/good_training_language_fork",
+    short: {
+      ru: "Учебный компилируемый язык с кириллическим синтаксисом — форк, который я отрефакторил и довёл до ума.",
+      en: "An educational compiled language with Cyrillic syntax — a fork I refactored and finished.",
+      uk: "Навчальна компільована мова з кириличним синтаксисом — форк, який я відрефакторив і довів до ладу.",
+    },
+    body: {
+      ru: [
+        "«Хороший Учебный Язык» (ХУЯ) — учебный компилируемый язык программирования, где код пишется кириллицей, а файлы имеют расширение .хуя. Идейно он вдохновлён Учебным Алгоритмическим Языком академика Ершова. Изначально это была первоапрельская шутка одного автора — но шутка, которая внезапно оказалась более-менее полноценным языком, на котором реально можно что-то писать.",
+        "Я форкнул проект и довёл его до ума. Оригинал был написан второпях — с багами и незаконченными кусками, без нормальной документации. Моя работа здесь — рефакторинг кодовой базы и закрытие TODO, которые автор оставил незавершёнными. Это не моя разработка с нуля, но это полноценное доведение чужого черновика до рабочего состояния.",
+        "Компилятор написан на Rust. Программу на ХУЯ можно скомпилировать через ассемблер fasm в нативный исполняемый файл под Linux x86-64 — либо запустить через интерпретатор промежуточного представления, и этот путь уже кроссплатформенный.",
+      ],
+      en: [
+        "The 'Good Training Language' is an educational compiled programming language where code is written in Cyrillic and files use the .хуя extension. It's conceptually inspired by academician Ershov's Educational Algorithmic Language. It started as one author's April Fools' joke — but a joke that turned out to be a more or less complete language you can actually write in.",
+        "I forked the project and brought it up to standard. The original was written in a hurry — with bugs and unfinished parts, no real documentation. My work here is refactoring the codebase and closing the TODOs the author left unfinished. It isn't my from-scratch creation, but it is a full job of taking someone's draft to a working state.",
+        "The compiler is written in Rust. A program can be compiled via the fasm assembler into a native Linux x86-64 executable — or run through an intermediate-representation interpreter, which is the cross-platform path.",
+      ],
+      uk: [
+        "«Хороша Навчальна Мова» — навчальна компільована мова програмування, де код пишеться кирилицею, а файли мають розширення .хуя. Ідейно вона натхненна Навчальною Алгоритмічною Мовою академіка Єршова. Спершу це був першоквітневий жарт одного автора — але жарт, що несподівано виявився більш-менш повноцінною мовою.",
+        "Я форкнув проєкт і довів його до ладу. Оригінал було написано поспіхом — із багами й незавершеними частинами. Моя робота тут — рефакторинг кодової бази та закриття TODO, які автор лишив незавершеними.",
+        "Компілятор написаний на Rust. Програму можна скомпілювати через асемблер fasm у нативний виконуваний файл під Linux x86-64 — або запустити через інтерпретатор проміжного представлення, і цей шлях уже кросплатформений.",
+      ],
+    },
+    features: {
+      ru: ["Кириллический синтаксис, файлы с расширением .хуя", "Компиляция в нативный бинарник x86-64 через fasm (Linux)", "Кроссплатформенный интерпретатор промежуточного представления", "Компилятор написан на Rust", "Мой вклад: рефакторинг кодовой базы и завершение TODO оригинального автора"],
+      en: ["Cyrillic syntax, files with the .хуя extension", "Compilation to a native x86-64 binary via fasm (Linux)", "Cross-platform intermediate-representation interpreter", "Compiler written in Rust", "My contribution: codebase refactoring and finishing the original author's TODOs"],
+      uk: ["Кириличний синтаксис, файли з розширенням .хуя", "Компіляція в нативний бінарник x86-64 через fasm (Linux)", "Кросплатформений інтерпретатор проміжного представлення", "Компілятор написаний на Rust", "Мій внесок: рефакторинг кодової бази та завершення TODO оригінального автора"],
+    },
+  },
+  {
+    id: "freemarks", name: "FreeMarks", aka: "Слабая цензура персональных данных",
+    category: "crypto", status: "done", year: 2024,
+    langs: ["Python"], tags: ["Приватность", "Демонстрация уязвимости", "Парсинг", "Веб"],
+    short: {
+      ru: "Демонстрация того, как примитивная «цензура» личных данных в опубликованных оценках легко обходится.",
+      en: "A demonstration of how the primitive 'censorship' of personal data in published grades is easily reversed.",
+      uk: "Демонстрація того, як примітивна «цензура» особистих даних в опублікованих оцінках легко обходиться.",
+    },
+    body: {
+      ru: [
+        "Университет публикует ведомости с оценками и «закрывает» в них ФИО и личные данные студентов. FreeMarks показывает, что это сокрытие примитивно и обратимо: проект извлекает оценки из методички и сопоставляет данные обратно, обходя наивную цензуру.",
+        "Сделан не ради злоупотребления, а как наглядная демонстрация проблемы. Это аргумент в споре о том, что текущий способ защиты персональных данных в публичных ведомостях не работает — если убрать данные так слабо, их легко восстановить.",
+        "По духу проект продолжает мою линию ответственного отношения к найденным проблемам: показать, что система дырявая, чтобы её починили, — а не воспользоваться этим тихо. Тот же принцип, что и в аудите онлайн-зачётки.",
+      ],
+      en: [
+        "The university publishes grade sheets and 'redacts' students' names and personal data in them. FreeMarks shows that this redaction is primitive and reversible: the project extracts grades and maps the data back, bypassing the naive censorship.",
+        "It was built not to abuse but as a clear demonstration of the problem. It's an argument that the current way of protecting personal data in public grade sheets doesn't work — if you remove data that weakly, it's easy to restore.",
+        "In spirit the project continues my line of responsible handling of discovered problems: show that a system is leaky so it gets fixed, rather than quietly exploiting it. The same principle as in the online-gradebook audit.",
+      ],
+      uk: [
+        "Університет публікує відомості з оцінками й «закриває» в них ПІБ та особисті дані студентів. FreeMarks показує, що це приховування примітивне й оборотне: проєкт витягує оцінки й зіставляє дані назад, обходячи наївну цензуру.",
+        "Зроблено не заради зловживання, а як наочна демонстрація проблеми — поточний спосіб захисту персональних даних у публічних відомостях не працює.",
+        "За духом проєкт продовжує мою лінію відповідального ставлення до знайдених проблем: показати, що система дірява, щоб її полагодили. Той самий принцип, що і в аудиті онлайн-заліковки.",
+      ],
+    },
+  },
 ];

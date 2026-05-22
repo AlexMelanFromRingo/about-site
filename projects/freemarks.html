@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Captcha OCR — Alex Melan</title>
-<meta name="description" content="Нейросеть для распознавания текста с простых капч — исследование стойкости защиты.">
+<title>FreeMarks — Alex Melan</title>
+<meta name="description" content="Демонстрация того, как примитивная «цензура» личных данных в опубликованных оценках легко обходится.">
 <meta name="author" content="Alex Melan">
-<meta property="og:title" content="Captcha OCR — Alex Melan">
-<meta property="og:description" content="Нейросеть для распознавания текста с простых капч — исследование стойкости защиты.">
+<meta property="og:title" content="FreeMarks — Alex Melan">
+<meta property="og:description" content="Демонстрация того, как примитивная «цензура» личных данных в опубликованных оценках легко обходится.">
 <meta property="og:type" content="website">
 <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,54 +53,54 @@
   <article class="wrap">
     <header class="border-b border-line-soft pb-8">
       <div class="flex flex-wrap items-center gap-2.5 mb-5">
-        <span class="chip" style="border-color:#a98bff55;color:#a98bff"><svg class="" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.142M12 5a3 3 0 1 1 5.997.142M12 5v14M6.003 5.142A3 3 0 0 0 4 8c0 .5.1 1 .3 1.4M18 5.142A3 3 0 0 1 20 8c0 .5-.1 1-.3 1.4M5 14a3 3 0 1 0 3 3M19 14a3 3 0 1 1-3 3"/></svg> <span data-l="ru">Нейросети и машинное обучение</span><span data-l="en">Neural networks &amp; ML</span><span data-l="uk">Нейромережі та ML</span></span>
+        <span class="chip" style="border-color:#ffb45455;color:#ffb454"><svg class="" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> <span data-l="ru">Криптография и безопасность</span><span data-l="en">Cryptography &amp; security</span><span data-l="uk">Криптографія та безпека</span></span>
         <span class="flex items-center gap-1.5 font-mono text-xs" style="color:#56d364"><span class="dot" style="background:#56d364"></span><span data-l="ru">Завершён</span><span data-l="en">Completed</span><span data-l="uk">Завершений</span></span>
         <span class="font-mono text-xs text-faint">2024</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Captcha OCR</h1>
-      <p class="mt-1 font-mono text-sm text-faint">Распознавание капчи</p>
-      <p class="mt-4 max-w-2xl text-lg text-muted leading-relaxed"><span data-l="ru">Нейросеть для распознавания текста с простых капч — исследование стойкости защиты.</span><span data-l="en">A neural network for reading text from simple captchas — a study of how robust they are.</span><span data-l="uk">Нейромережа для розпізнавання тексту з простих капч — дослідження стійкості захисту.</span></p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">FreeMarks</h1>
+      <p class="mt-1 font-mono text-sm text-faint">Слабая цензура персональных данных</p>
+      <p class="mt-4 max-w-2xl text-lg text-muted leading-relaxed"><span data-l="ru">Демонстрация того, как примитивная «цензура» личных данных в опубликованных оценках легко обходится.</span><span data-l="en">A demonstration of how the primitive 'censorship' of personal data in published grades is easily reversed.</span><span data-l="uk">Демонстрація того, як примітивна «цензура» особистих даних в опублікованих оцінках легко обходиться.</span></p>
       <div class="mt-6 flex flex-wrap items-center gap-3">
         <span class="btn btn-ghost opacity-70"><svg class="" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> <span data-l="ru">Исходники не опубликованы</span><span data-l="en">Sources not published</span><span data-l="uk">Вихідники не опубліковані</span></span>
-        <div class="flex flex-wrap gap-1.5"><span class="tag">Python</span><span class="tag">PyTorch</span></div>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">Python</span></div>
       </div>
     </header>
 
     <div class="grid lg:grid-cols-[1fr_280px] gap-10 py-10">
       <div class="prose-block">
         <h2><span data-l="ru">О проекте</span><span data-l="en">Overview</span><span data-l="uk">Про проєкт</span></h2>
-        <p data-l="ru">Капча должна отличать человека от бота, но простые капчи нейросеть читает без труда. В проекте я обучил несколько версий OCR-модели и сравнил их точность и скорость — наглядное исследование того, какая защита уже не защищает.</p><p data-l="ru">Тема на стыке компьютерного зрения и безопасности: понимать слабость капчи полезно тому, кто их проектирует.</p><p data-l="en">A captcha is meant to tell a human from a bot, but a neural network reads simple captchas with ease. In this project I trained several versions of an OCR model and compared their accuracy and speed — a clear study of which protection no longer protects.</p><p data-l="en">A topic between computer vision and security: understanding a captcha's weakness helps whoever designs them.</p><p data-l="uk">Капча має відрізняти людину від бота, але прості капчі нейромережа читає без труднощів. У проєкті я навчив кілька версій OCR-моделі й порівняв їхню точність.</p><p data-l="uk">Тема на стику комп'ютерного зору та безпеки.</p>
+        <p data-l="ru">Университет публикует ведомости с оценками и «закрывает» в них ФИО и личные данные студентов. FreeMarks показывает, что это сокрытие примитивно и обратимо: проект извлекает оценки из методички и сопоставляет данные обратно, обходя наивную цензуру.</p><p data-l="ru">Сделан не ради злоупотребления, а как наглядная демонстрация проблемы. Это аргумент в споре о том, что текущий способ защиты персональных данных в публичных ведомостях не работает — если убрать данные так слабо, их легко восстановить.</p><p data-l="ru">По духу проект продолжает мою линию ответственного отношения к найденным проблемам: показать, что система дырявая, чтобы её починили, — а не воспользоваться этим тихо. Тот же принцип, что и в аудите онлайн-зачётки.</p><p data-l="en">The university publishes grade sheets and 'redacts' students' names and personal data in them. FreeMarks shows that this redaction is primitive and reversible: the project extracts grades and maps the data back, bypassing the naive censorship.</p><p data-l="en">It was built not to abuse but as a clear demonstration of the problem. It's an argument that the current way of protecting personal data in public grade sheets doesn't work — if you remove data that weakly, it's easy to restore.</p><p data-l="en">In spirit the project continues my line of responsible handling of discovered problems: show that a system is leaky so it gets fixed, rather than quietly exploiting it. The same principle as in the online-gradebook audit.</p><p data-l="uk">Університет публікує відомості з оцінками й «закриває» в них ПІБ та особисті дані студентів. FreeMarks показує, що це приховування примітивне й оборотне: проєкт витягує оцінки й зіставляє дані назад, обходячи наївну цензуру.</p><p data-l="uk">Зроблено не заради зловживання, а як наочна демонстрація проблеми — поточний спосіб захисту персональних даних у публічних відомостях не працює.</p><p data-l="uk">За духом проєкт продовжує мою лінію відповідального ставлення до знайдених проблем: показати, що система дірява, щоб її полагодили. Той самий принцип, що і в аудиті онлайн-заліковки.</p>
         
       </div>
       <aside class="space-y-1 lg:border-l lg:border-line-soft lg:pl-8 h-fit">
-        <div class="meta-row"><span class="text-faint"><span data-l="ru">Категория</span><span data-l="en">Category</span><span data-l="uk">Категорія</span></span><span class="font-medium" style="color:#a98bff"><span data-l="ru">Нейросети и машинное обучение</span><span data-l="en">Neural networks &amp; ML</span><span data-l="uk">Нейромережі та ML</span></span></div>
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Категория</span><span data-l="en">Category</span><span data-l="uk">Категорія</span></span><span class="font-medium" style="color:#ffb454"><span data-l="ru">Криптография и безопасность</span><span data-l="en">Cryptography &amp; security</span><span data-l="uk">Криптографія та безпека</span></span></div>
         <div class="meta-row"><span class="text-faint"><span data-l="ru">Статус</span><span data-l="en">Status</span><span data-l="uk">Статус</span></span><span class="font-medium" style="color:#56d364"><span data-l="ru">Завершён</span><span data-l="en">Completed</span><span data-l="uk">Завершений</span></span></div>
         <div class="meta-row"><span class="text-faint"><span data-l="ru">Год</span><span data-l="en">Year</span><span data-l="uk">Рік</span></span><span class="font-mono">2024</span></div>
         <div class="pt-5">
           <div class="text-faint text-sm mb-2"><span data-l="ru">Технологии</span><span data-l="en">Tech stack</span><span data-l="uk">Технології</span></div>
-          <div class="flex flex-wrap gap-1.5"><span class="tag">Python</span><span class="tag">PyTorch</span></div>
+          <div class="flex flex-wrap gap-1.5"><span class="tag">Python</span></div>
         </div>
-        <div class="pt-4"><div class="text-faint text-sm mb-2"><span data-l="ru">Теги</span><span data-l="en">Tags</span><span data-l="uk">Теги</span></div><div class="flex flex-wrap gap-1.5"><span class="chip">OCR</span><span class="chip">Computer Vision</span><span class="chip">Безопасность</span></div></div>
+        <div class="pt-4"><div class="text-faint text-sm mb-2"><span data-l="ru">Теги</span><span data-l="en">Tags</span><span data-l="uk">Теги</span></div><div class="flex flex-wrap gap-1.5"><span class="chip">Приватность</span><span class="chip">Демонстрация уязвимости</span><span class="chip">Парсинг</span><span class="chip">Веб</span></div></div>
       </aside>
     </div>
   </article>
   <section class="wrap py-10">
     <h2 class="text-lg font-semibold mb-5"><span data-l="ru">Похожие проекты</span><span data-l="en">Related projects</span><span data-l="uk">Схожі проєкти</span></h2>
     <div class="grid gap-4 sm:grid-cols-3">
-      <a href="mangacoloring.html" class="pcard" style="--cat:#a98bff">
-        <span class="chip mb-3 self-start" style="border-color:#a98bff33"><span class="dot" style="background:#a98bff"></span><span data-l="ru">Нейросети и машинное обучение</span><span data-l="en">Neural networks &amp; ML</span><span data-l="uk">Нейромережі та ML</span></span>
-        <h3 class="pcard-title">MangaColoring</h3>
-        <p class="mt-2 text-sm text-muted"><span data-l="ru">Архитектура нейросети, которая автоматически раскрашивает чёрно-белые страницы манги.</span><span data-l="en">A neural-network architecture that automatically colours black-and-white manga pages.</span><span data-l="uk">Архітектура нейромережі, що автоматично розфарбовує чорно-білі сторінки манги.</span></p>
+      <a href="kalynamode.html" class="pcard" style="--cat:#ffb454">
+        <span class="chip mb-3 self-start" style="border-color:#ffb45433"><span class="dot" style="background:#ffb454"></span><span data-l="ru">Криптография и безопасность</span><span data-l="en">Cryptography &amp; security</span><span data-l="uk">Криптографія та безпека</span></span>
+        <h3 class="pcard-title">KalynaMode</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Плагин для hashcat, добавляющий режимы атаки на украинский государственный шифр Kalyna.</span><span data-l="en">A hashcat plugin adding attack modes for the Ukrainian state cipher Kalyna.</span><span data-l="uk">Плагін для hashcat, що додає режими атаки на український державний шифр «Калина».</span></p>
       </a>
-<a href="minigpt.html" class="pcard" style="--cat:#a98bff">
-        <span class="chip mb-3 self-start" style="border-color:#a98bff33"><span class="dot" style="background:#a98bff"></span><span data-l="ru">Нейросети и машинное обучение</span><span data-l="en">Neural networks &amp; ML</span><span data-l="uk">Нейромережі та ML</span></span>
-        <h3 class="pcard-title">MiniGPT</h3>
-        <p class="mt-2 text-sm text-muted"><span data-l="ru">Минимальная реализация языковой модели в стиле GPT, написанная с нуля для понимания трансформеров.</span><span data-l="en">A minimal GPT-style language model written from scratch to understand transformers.</span><span data-l="uk">Мінімальна реалізація мовної моделі в стилі GPT, написана з нуля для розуміння трансформерів.</span></p>
+<a href="rsa16-edu.html" class="pcard" style="--cat:#ffb454">
+        <span class="chip mb-3 self-start" style="border-color:#ffb45433"><span class="dot" style="background:#ffb454"></span><span data-l="ru">Криптография и безопасность</span><span data-l="en">Cryptography &amp; security</span><span data-l="uk">Криптографія та безпека</span></span>
+        <h3 class="pcard-title">RSA-16 Demo</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Интерактивное WebAssembly-приложение для изучения алгоритма RSA на 16-битном модуле.</span><span data-l="en">An interactive WebAssembly app for learning the RSA algorithm on a 16-bit modulus.</span><span data-l="uk">Інтерактивний WebAssembly-застосунок для вивчення алгоритму RSA на 16-бітному модулі.</span></p>
       </a>
-<a href="ganlearn.html" class="pcard" style="--cat:#a98bff">
-        <span class="chip mb-3 self-start" style="border-color:#a98bff33"><span class="dot" style="background:#a98bff"></span><span data-l="ru">Нейросети и машинное обучение</span><span data-l="en">Neural networks &amp; ML</span><span data-l="uk">Нейромережі та ML</span></span>
-        <h3 class="pcard-title">GAN Learn</h3>
-        <p class="mt-2 text-sm text-muted"><span data-l="ru">Серия учебных экспериментов с генеративно-состязательными сетями на лицах и цифрах MNIST.</span><span data-l="en">A series of learning experiments with generative-adversarial networks on faces and MNIST digits.</span><span data-l="uk">Серія навчальних експериментів із генеративно-змагальними мережами на обличчях і цифрах MNIST.</span></p>
+<a href="wpa-demo.html" class="pcard" style="--cat:#ffb454">
+        <span class="chip mb-3 self-start" style="border-color:#ffb45433"><span class="dot" style="background:#ffb454"></span><span data-l="ru">Криптография и безопасность</span><span data-l="en">Cryptography &amp; security</span><span data-l="uk">Криптографія та безпека</span></span>
+        <h3 class="pcard-title">Методичка по Wi-Fi</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Интерактивная визуальная методичка по безопасности Wi-Fi для полных новичков.</span><span data-l="en">An interactive visual guide to Wi-Fi security for absolute beginners.</span><span data-l="uk">Інтерактивна візуальна методичка з безпеки Wi-Fi для повних новачків.</span></p>
       </a>
     </div>
   </section>

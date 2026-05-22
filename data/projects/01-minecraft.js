@@ -226,9 +226,9 @@ module.exports = [
       uk: "Плагін для серверів Paper, що додає переносні рюкзаки з додатковим сховищем.",
     },
     body: {
-      ru: ["Рюкзаки как предмет: игрок носит с собой дополнительный инвентарь и открывает его в любой момент. Проект пережил три итерации (BackpackPaper, 2 и 3) — каждый раз я переписывал хранение содержимого надёжнее.", "Третья версия — самая аккуратная: данные рюкзаков не теряются при перезапусках и переездах между мирами."],
-      en: ["Backpacks as an item: a player carries extra inventory and opens it any time. The project went through three iterations (BackpackPaper, 2 and 3), each time with more reliable content storage.", "The third version is the cleanest — backpack data survives restarts and moves between worlds."],
-      uk: ["Рюкзаки як предмет: гравець носить із собою додатковий інвентар і відкриває його будь-коли. Проєкт пережив три ітерації — щоразу я переписував зберігання вмісту надійніше.", "Третя версія — найакуратніша: дані рюкзаків не губляться при перезапусках."],
+      ru: ["Рюкзаки как предмет: игрок носит с собой дополнительный инвентарь и открывает его в любой момент. На диске проект лежит как BackpackPaper, 2 и 3 — но это не итерации переписывания, просто я тогда ещё не дружил с git и плодил папки вместо веток. BackpackPaper3 — финальная, законченная версия.", "Она хранит содержимое рюкзаков надёжно: данные не теряются при перезапусках сервера и переездах между мирами."],
+      en: ["Backpacks as an item: a player carries extra inventory and opens it any time. On disk the project sits as BackpackPaper, 2 and 3 — but those aren't rewrite iterations, I just wasn't friends with git back then and made folders instead of branches. BackpackPaper3 is the final, finished version.", "It stores backpack contents reliably: data survives server restarts and moves between worlds."],
+      uk: ["Рюкзаки як предмет: гравець носить із собою додатковий інвентар і відкриває його будь-коли. На диску проєкт лежить як BackpackPaper, 2 і 3 — але це не ітерації переписування, просто я тоді ще не дружив із git і плодив папки замість гілок. BackpackPaper3 — фінальна, завершена версія.", "Вона зберігає вміст рюкзаків надійно: дані не губляться при перезапусках сервера."],
     },
   },
   {
@@ -447,7 +447,7 @@ module.exports = [
   },
   {
     id: "herobrine", name: "Herobrine Plugin", aka: "Легенда о Херобрине",
-    category: "minecraft", status: "concept", year: 2023,
+    category: "minecraft", status: "done", year: 2023,
     langs: ["Java"], tags: ["Paper", "Атмосфера", "Контент"],
     short: {
       ru: "Плагин, оживляющий старую легенду о Херобрине — редкие пугающие события на сервере.",
@@ -651,7 +651,7 @@ module.exports = [
   },
   {
     id: "mcserverping", name: "Minecraft Server Ping", aka: "Поиск серверов",
-    category: "minecraft", status: "done", year: 2023,
+    category: "minecraft", status: "broken", year: 2023,
     langs: ["Java", "Python", "Go"], tags: ["Сканер", "Сеть", "Protocol"],
     github: "https://github.com/AlexMelanFromRingo/minecraft-ping-tool",
     short: {

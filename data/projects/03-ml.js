@@ -43,7 +43,7 @@ module.exports = [
   },
   {
     id: "customgan", name: "CustomGAN", aka: "Своя GAN-сеть",
-    category: "ml", status: "done", year: 2024,
+    category: "ml", status: "concept", year: 2024,
     langs: ["Python", "PyTorch"], tags: ["GAN", "Генеративные модели"],
     short: {
       ru: "Проект по созданию собственной нейросети генеративно-состязательной архитектуры (GAN).",
@@ -89,7 +89,7 @@ module.exports = [
   },
   {
     id: "llama-finetune", name: "LLaMA Fine Tune", aka: "Дообучение модели",
-    category: "ml", status: "done", year: 2024,
+    category: "ml", status: "concept", year: 2024,
     langs: ["Python", "PyTorch"], tags: ["LLM", "Fine-tuning", "LLaMA"],
     short: {
       ru: "Дообучение языковой модели LLaMA на собственном наборе данных.",
