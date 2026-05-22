@@ -148,7 +148,7 @@ html[data-lang="uk"] [data-l="en"] { display: none !important; }
 
   /* --- Карточки «обо мне» --- */
   .trait {
-    @apply relative overflow-hidden rounded-2xl border border-line bg-surface/70 p-5
+    @apply relative overflow-hidden rounded-2xl border border-line bg-surface p-5
            transition-all duration-300;
   }
   .trait:hover { @apply -translate-y-1 border-brand/40; }
@@ -160,7 +160,7 @@ html[data-lang="uk"] [data-l="en"] { display: none !important; }
   /* --- Карточка проекта --- */
   .pcard {
     @apply relative flex flex-col overflow-hidden rounded-2xl border border-line
-           bg-surface/80 p-5 transition-all duration-300;
+           bg-surface p-5 transition-all duration-300;
     will-change: transform;
   }
   .pcard::before {
@@ -187,7 +187,7 @@ html[data-lang="uk"] [data-l="en"] { display: none !important; }
   /* --- Фильтры --- */
   .filter {
     @apply inline-flex items-center gap-2 rounded-full border border-line
-           bg-surface/70 px-3.5 py-1.5 text-sm text-muted transition-all duration-200;
+           bg-surface px-3.5 py-1.5 text-sm text-muted transition-all duration-200;
     cursor: pointer;
   }
   .filter:hover { @apply border-brand/40 text-fg; }
@@ -199,7 +199,7 @@ html[data-lang="uk"] [data-l="en"] { display: none !important; }
 
   /* --- Поиск --- */
   .search {
-    @apply w-full rounded-xl border border-line bg-surface/70 py-3 pl-11 pr-4
+    @apply w-full rounded-xl border border-line bg-surface py-3 pl-11 pr-4
            text-sm text-fg placeholder:text-faint transition-all duration-200;
   }
   .search:focus { @apply border-brand/60 bg-surface outline-none; box-shadow: 0 0 0 4px rgba(76,141,255,0.1); }
