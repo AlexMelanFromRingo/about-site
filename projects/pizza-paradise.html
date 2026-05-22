@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizza Paradise — Alex Melan</title>
+<meta name="description" content="Ещё один сайт на тему пиццерии — отдельный проект со своим оформлением.">
+<meta name="author" content="Alex Melan">
+<meta property="og:title" content="Pizza Paradise — Alex Melan">
+<meta property="og:description" content="Ещё один сайт на тему пиццерии — отдельный проект со своим оформлением.">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var l=localStorage.getItem('lang');if(['ru','en','uk'].indexOf(l)<0)l='ru';d.setAttribute('data-lang',l);d.setAttribute('lang',l);}catch(e){}})();</script>
+</head>
+<body><header class="nav" id="nav">
+  <div class="wrap flex items-center justify-between h-16">
+    <a href="../index.html" class="flex items-center gap-2.5 group">
+      <span class="grid h-9 w-9 place-items-center rounded-xl font-mono font-bold text-white" style="background:linear-gradient(135deg,var(--color-brand),var(--color-violet))">AM</span>
+      <span class="hidden sm:block font-semibold tracking-tight">Alex&nbsp;Melan</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="../index.html#about" class="nav-link"><span data-l="ru">Обо мне</span><span data-l="en">About</span><span data-l="uk">Про мене</span></a>
+      <a href="../index.html#projects" class="nav-link"><span data-l="ru">Проекты</span><span data-l="en">Projects</span><span data-l="uk">Проєкти</span></a>
+      <a href="../index.html#contact" class="nav-link"><span data-l="ru">Контакты</span><span data-l="en">Contacts</span><span data-l="uk">Контакти</span></a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="uk">UA</button>
+      </div>
+      <a href="https://github.com/AlexMelanFromRingo" target="_blank" rel="noopener" class="grid h-9 w-9 place-items-center rounded-lg border border-line bg-surface/60 text-muted transition-colors hover:text-fg hover:border-brand/50" aria-label="GitHub"><svg class="" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.5-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.1 1.7 4.9 2.1 4.9 2.1a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.5 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/></svg></a>
+      <button class="md:hidden grid h-9 w-9 place-items-center rounded-lg border border-line bg-surface/60 text-muted" id="menuBtn" aria-label="Меню"><svg class="" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+  <div class="md:hidden hidden border-t border-line-soft bg-ink-soft" id="mobileMenu">
+    <div class="wrap flex flex-col py-3">
+      <a href="../index.html#about" class="py-2.5 text-sm text-muted"><span data-l="ru">Обо мне</span><span data-l="en">About</span><span data-l="uk">Про мене</span></a>
+      <a href="../index.html#projects" class="py-2.5 text-sm text-muted"><span data-l="ru">Проекты</span><span data-l="en">Projects</span><span data-l="uk">Проєкти</span></a>
+      <a href="../index.html#contact" class="py-2.5 text-sm text-muted"><span data-l="ru">Контакты</span><span data-l="en">Contacts</span><span data-l="uk">Контакти</span></a>
+    </div>
+  </div>
+</header>
+<main class="pt-24">
+  <div class="wrap py-6">
+    <a href="../index.html#projects" class="inline-flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors"><svg class="" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M19 12H5"/></svg> <span data-l="ru">Все проекты</span><span data-l="en">All projects</span><span data-l="uk">Усі проєкти</span></a>
+  </div>
+
+  <article class="wrap">
+    <header class="border-b border-line-soft pb-8">
+      <div class="flex flex-wrap items-center gap-2.5 mb-5">
+        <span class="chip" style="border-color:#56d36455;color:#56d364"><svg class="" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.9 6 4 9-.1 3-1.5 6.3-4 9-2.5-2.7-3.9-6-4-9 .1-3 1.5-6.3 4-9z"/></svg> <span data-l="ru">Веб и инструменты</span><span data-l="en">Web &amp; tools</span><span data-l="uk">Веб та інструменти</span></span>
+        <span class="flex items-center gap-1.5 font-mono text-xs" style="color:#56d364"><span class="dot" style="background:#56d364"></span><span data-l="ru">Завершён</span><span data-l="en">Completed</span><span data-l="uk">Завершений</span></span>
+        <span class="font-mono text-xs text-faint">2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Pizza Paradise</h1>
+      <p class="mt-1 font-mono text-sm text-faint">Сайт-проект пиццерии</p>
+      <p class="mt-4 max-w-2xl text-lg text-muted leading-relaxed"><span data-l="ru">Ещё один сайт на тему пиццерии — отдельный проект со своим оформлением.</span><span data-l="en">Another pizzeria-themed site — a separate project with its own design.</span><span data-l="uk">Ще один сайт на тему піцерії — окремий проєкт зі своїм оформленням.</span></p>
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <span class="btn btn-ghost opacity-70"><svg class="" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> <span data-l="ru">Исходники не опубликованы</span><span data-l="en">Sources not published</span><span data-l="uk">Вихідники не опубліковані</span></span>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">JavaScript</span><span class="tag">HTML</span></div>
+      </div>
+    </header>
+
+    <div class="grid lg:grid-cols-[1fr_280px] gap-10 py-10">
+      <div class="prose-block">
+        <h2><span data-l="ru">О проекте</span><span data-l="en">Overview</span><span data-l="uk">Про проєкт</span></h2>
+        <p data-l="ru">Второй заход в тему сайтов для пиццерий, со своим дизайном и подачей. Когда делаешь несколько проектов в одной области, начинаешь видеть, что работает, а что нет.</p><p data-l="ru">Веб-разработка — это во многом насмотренность, и она набирается практикой.</p><p data-l="en">A second take on pizzeria sites, with its own design and presentation. When you do several projects in one area, you start to see what works and what doesn't.</p><p data-l="en">Web development is largely a trained eye, and it's built through practice.</p><p data-l="uk">Другий захід у тему сайтів для піцерій, зі своїм дизайном і подачею. Коли робиш кілька проєктів в одній сфері, починаєш бачити, що працює.</p><p data-l="uk">Веброзробка — це багато в чому насмотреність.</p>
+        
+      </div>
+      <aside class="space-y-1 lg:border-l lg:border-line-soft lg:pl-8 h-fit">
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Категория</span><span data-l="en">Category</span><span data-l="uk">Категорія</span></span><span class="font-medium" style="color:#56d364"><span data-l="ru">Веб и инструменты</span><span data-l="en">Web &amp; tools</span><span data-l="uk">Веб та інструменти</span></span></div>
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Статус</span><span data-l="en">Status</span><span data-l="uk">Статус</span></span><span class="font-medium" style="color:#56d364"><span data-l="ru">Завершён</span><span data-l="en">Completed</span><span data-l="uk">Завершений</span></span></div>
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Год</span><span data-l="en">Year</span><span data-l="uk">Рік</span></span><span class="font-mono">2026</span></div>
+        <div class="pt-5">
+          <div class="text-faint text-sm mb-2"><span data-l="ru">Технологии</span><span data-l="en">Tech stack</span><span data-l="uk">Технології</span></div>
+          <div class="flex flex-wrap gap-1.5"><span class="tag">JavaScript</span><span class="tag">HTML</span></div>
+        </div>
+        <div class="pt-4"><div class="text-faint text-sm mb-2"><span data-l="ru">Теги</span><span data-l="en">Tags</span><span data-l="uk">Теги</span></div><div class="flex flex-wrap gap-1.5"><span class="chip">Веб</span><span class="chip">Сайт</span></div></div>
+      </aside>
+    </div>
+  </article>
+  <section class="wrap py-10">
+    <h2 class="text-lg font-semibold mb-5"><span data-l="ru">Похожие проекты</span><span data-l="en">Related projects</span><span data-l="uk">Схожі проєкти</span></h2>
+    <div class="grid gap-4 sm:grid-cols-3">
+      <a href="devforge.html" class="pcard" style="--cat:#56d364">
+        <span class="chip mb-3 self-start" style="border-color:#56d36433"><span class="dot" style="background:#56d364"></span><span data-l="ru">Веб и инструменты</span><span data-l="en">Web &amp; tools</span><span data-l="uk">Веб та інструменти</span></span>
+        <h3 class="pcard-title">DevForge</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Набор бесплатных онлайн-инструментов для разработчиков в одном месте.</span><span data-l="en">A collection of free online developer tools in one place.</span><span data-l="uk">Набір безкоштовних онлайн-інструментів для розробників в одному місці.</span></p>
+      </a>
+<a href="about-site.html" class="pcard" style="--cat:#56d364">
+        <span class="chip mb-3 self-start" style="border-color:#56d36433"><span class="dot" style="background:#56d364"></span><span data-l="ru">Веб и инструменты</span><span data-l="en">Web &amp; tools</span><span data-l="uk">Веб та інструменти</span></span>
+        <h3 class="pcard-title">Этот сайт</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Сайт-портфолио, который вы сейчас читаете — со своим генератором и тремя языками.</span><span data-l="en">The portfolio site you're reading right now — with its own generator and three languages.</span><span data-l="uk">Сайт-портфоліо, який ви зараз читаєте — з власним генератором і трьома мовами.</span></p>
+      </a>
+<a href="artem-site.html" class="pcard" style="--cat:#56d364">
+        <span class="chip mb-3 self-start" style="border-color:#56d36433"><span class="dot" style="background:#56d364"></span><span data-l="ru">Веб и инструменты</span><span data-l="en">Web &amp; tools</span><span data-l="uk">Веб та інструменти</span></span>
+        <h3 class="pcard-title">Artem Site</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Персональный сайт, сделанный на заказ.</span><span data-l="en">A personal website made to order.</span><span data-l="uk">Персональний сайт, зроблений на замовлення.</span></p>
+      </a>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-line-soft mt-24">
+  <div class="wrap py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2.5">
+      <span class="grid h-8 w-8 place-items-center rounded-lg font-mono text-xs font-bold text-white" style="background:linear-gradient(135deg,var(--color-brand),var(--color-violet))">AM</span>
+      <span class="text-sm text-muted">© 2026 Alex Melan</span>
+    </div>
+    <p class="text-xs text-faint"><span data-l="ru">Сайт собран статически, исходники на GitHub.</span><span data-l="en">Statically generated, sources on GitHub.</span><span data-l="uk">Сайт зібраний статично, вихідники на GitHub.</span></p>
+    <a href="https://github.com/AlexMelanFromRingo" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors"><svg class="" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.5-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.1 1.7 4.9 2.1 4.9 2.1a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.5 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/></svg> AlexMelanFromRingo</a>
+  </div>
+</footer>
+<button id="toTop" class="fixed bottom-7 right-7 z-40 grid h-12 w-12 place-items-center rounded-full text-white opacity-0 pointer-events-none transition-all duration-300" style="background:linear-gradient(135deg,var(--color-brand),var(--color-violet));box-shadow:0 10px 28px -8px rgba(76,141,255,.6)" aria-label="Наверх"><svg class="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>

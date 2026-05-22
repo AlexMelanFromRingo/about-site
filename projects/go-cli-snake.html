@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terminal Snake — Alex Melan</title>
+<meta name="description" content="Классическая «Змейка», работающая прямо в терминале, на Go.">
+<meta name="author" content="Alex Melan">
+<meta property="og:title" content="Terminal Snake — Alex Melan">
+<meta property="og:description" content="Классическая «Змейка», работающая прямо в терминале, на Go.">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var l=localStorage.getItem('lang');if(['ru','en','uk'].indexOf(l)<0)l='ru';d.setAttribute('data-lang',l);d.setAttribute('lang',l);}catch(e){}})();</script>
+</head>
+<body><header class="nav" id="nav">
+  <div class="wrap flex items-center justify-between h-16">
+    <a href="../index.html" class="flex items-center gap-2.5 group">
+      <span class="grid h-9 w-9 place-items-center rounded-xl font-mono font-bold text-white" style="background:linear-gradient(135deg,var(--color-brand),var(--color-violet))">AM</span>
+      <span class="hidden sm:block font-semibold tracking-tight">Alex&nbsp;Melan</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="../index.html#about" class="nav-link"><span data-l="ru">Обо мне</span><span data-l="en">About</span><span data-l="uk">Про мене</span></a>
+      <a href="../index.html#projects" class="nav-link"><span data-l="ru">Проекты</span><span data-l="en">Projects</span><span data-l="uk">Проєкти</span></a>
+      <a href="../index.html#contact" class="nav-link"><span data-l="ru">Контакты</span><span data-l="en">Contacts</span><span data-l="uk">Контакти</span></a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="uk">UA</button>
+      </div>
+      <a href="https://github.com/AlexMelanFromRingo" target="_blank" rel="noopener" class="grid h-9 w-9 place-items-center rounded-lg border border-line bg-surface/60 text-muted transition-colors hover:text-fg hover:border-brand/50" aria-label="GitHub"><svg class="" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.5-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.1 1.7 4.9 2.1 4.9 2.1a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.5 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/></svg></a>
+      <button class="md:hidden grid h-9 w-9 place-items-center rounded-lg border border-line bg-surface/60 text-muted" id="menuBtn" aria-label="Меню"><svg class="" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+  <div class="md:hidden hidden border-t border-line-soft bg-ink-soft" id="mobileMenu">
+    <div class="wrap flex flex-col py-3">
+      <a href="../index.html#about" class="py-2.5 text-sm text-muted"><span data-l="ru">Обо мне</span><span data-l="en">About</span><span data-l="uk">Про мене</span></a>
+      <a href="../index.html#projects" class="py-2.5 text-sm text-muted"><span data-l="ru">Проекты</span><span data-l="en">Projects</span><span data-l="uk">Проєкти</span></a>
+      <a href="../index.html#contact" class="py-2.5 text-sm text-muted"><span data-l="ru">Контакты</span><span data-l="en">Contacts</span><span data-l="uk">Контакти</span></a>
+    </div>
+  </div>
+</header>
+<main class="pt-24">
+  <div class="wrap py-6">
+    <a href="../index.html#projects" class="inline-flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors"><svg class="" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M19 12H5"/></svg> <span data-l="ru">Все проекты</span><span data-l="en">All projects</span><span data-l="uk">Усі проєкти</span></a>
+  </div>
+
+  <article class="wrap">
+    <header class="border-b border-line-soft pb-8">
+      <div class="flex flex-wrap items-center gap-2.5 mb-5">
+        <span class="chip" style="border-color:#8b98a955;color:#8b98a9"><svg class="" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 4 4-4 4M13 16h6"/><rect x="2" y="3" width="20" height="18" rx="2"/></svg> <span data-l="ru">Системное и CLI</span><span data-l="en">Systems &amp; CLI</span><span data-l="uk">Системне та CLI</span></span>
+        <span class="flex items-center gap-1.5 font-mono text-xs" style="color:#56d364"><span class="dot" style="background:#56d364"></span><span data-l="ru">Завершён</span><span data-l="en">Completed</span><span data-l="uk">Завершений</span></span>
+        <span class="font-mono text-xs text-faint">2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Terminal Snake</h1>
+      <p class="mt-1 font-mono text-sm text-faint">Змейка в консоли</p>
+      <p class="mt-4 max-w-2xl text-lg text-muted leading-relaxed"><span data-l="ru">Классическая «Змейка», работающая прямо в терминале, на Go.</span><span data-l="en">The classic Snake game running right in the terminal, in Go.</span><span data-l="uk">Класична «Змійка», що працює прямо в терміналі, на Go.</span></p>
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <span class="btn btn-ghost opacity-70"><svg class="" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> <span data-l="ru">Исходники не опубликованы</span><span data-l="en">Sources not published</span><span data-l="uk">Вихідники не опубліковані</span></span>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">Go</span></div>
+      </div>
+    </header>
+
+    <div class="grid lg:grid-cols-[1fr_280px] gap-10 py-10">
+      <div class="prose-block">
+        <h2><span data-l="ru">О проекте</span><span data-l="en">Overview</span><span data-l="uk">Про проєкт</span></h2>
+        <p data-l="ru">«Змейка» в текстовом терминале: управление с клавиатуры, поле из символов, счёт. Сделать игру в консоли — отдельный навык: нужно работать с вводом без буферизации и аккуратно перерисовывать экран.</p><p data-l="ru">Маленький проект, который учит делать живой интерфейс в терминале.</p><p data-l="en">Snake in a text terminal: keyboard control, a field of characters, a score. Making a game in the console is a separate skill: you have to work with unbuffered input and carefully redraw the screen.</p><p data-l="en">A small project that teaches building a live terminal interface.</p><p data-l="uk">«Змійка» в текстовому терміналі: керування з клавіатури, поле із символів, рахунок. Зробити гру в консолі — окреме вміння.</p><p data-l="uk">Маленький проєкт, що вчить робити живий інтерфейс у терміналі.</p>
+        
+      </div>
+      <aside class="space-y-1 lg:border-l lg:border-line-soft lg:pl-8 h-fit">
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Категория</span><span data-l="en">Category</span><span data-l="uk">Категорія</span></span><span class="font-medium" style="color:#8b98a9"><span data-l="ru">Системное и CLI</span><span data-l="en">Systems &amp; CLI</span><span data-l="uk">Системне та CLI</span></span></div>
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Статус</span><span data-l="en">Status</span><span data-l="uk">Статус</span></span><span class="font-medium" style="color:#56d364"><span data-l="ru">Завершён</span><span data-l="en">Completed</span><span data-l="uk">Завершений</span></span></div>
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Год</span><span data-l="en">Year</span><span data-l="uk">Рік</span></span><span class="font-mono">2026</span></div>
+        <div class="pt-5">
+          <div class="text-faint text-sm mb-2"><span data-l="ru">Технологии</span><span data-l="en">Tech stack</span><span data-l="uk">Технології</span></div>
+          <div class="flex flex-wrap gap-1.5"><span class="tag">Go</span></div>
+        </div>
+        <div class="pt-4"><div class="text-faint text-sm mb-2"><span data-l="ru">Теги</span><span data-l="en">Tags</span><span data-l="uk">Теги</span></div><div class="flex flex-wrap gap-1.5"><span class="chip">CLI</span><span class="chip">Игра</span><span class="chip">TUI</span></div></div>
+      </aside>
+    </div>
+  </article>
+  <section class="wrap py-10">
+    <h2 class="text-lg font-semibold mb-5"><span data-l="ru">Похожие проекты</span><span data-l="en">Related projects</span><span data-l="uk">Схожі проєкти</span></h2>
+    <div class="grid gap-4 sm:grid-cols-3">
+      <a href="lotus-led.html" class="pcard" style="--cat:#8b98a9">
+        <span class="chip mb-3 self-start" style="border-color:#8b98a933"><span class="dot" style="background:#8b98a9"></span><span data-l="ru">Системное и CLI</span><span data-l="en">Systems &amp; CLI</span><span data-l="uk">Системне та CLI</span></span>
+        <h3 class="pcard-title">Lotus LED</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Управление LED-лентами BLEDOM по Bluetooth — с реверс-инжинирингом протокола, на Rust и Python.</span><span data-l="en">Controlling BLEDOM LED strips over Bluetooth — with protocol reverse-engineering, in Rust and Python.</span><span data-l="uk">Керування LED-стрічками BLEDOM через Bluetooth — з реверс-інжинірингом протоколу, на Rust і Python.</span></p>
+      </a>
+<a href="cli-todo.html" class="pcard" style="--cat:#8b98a9">
+        <span class="chip mb-3 self-start" style="border-color:#8b98a933"><span class="dot" style="background:#8b98a9"></span><span data-l="ru">Системное и CLI</span><span data-l="en">Systems &amp; CLI</span><span data-l="uk">Системне та CLI</span></span>
+        <h3 class="pcard-title">CLI Todo</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Менеджер списка дел для командной строки — на Rust и на Go.</span><span data-l="en">A command-line to-do manager — in Rust and Go.</span><span data-l="uk">Менеджер списку справ для командного рядка — на Rust і на Go.</span></p>
+      </a>
+<a href="disk-data.html" class="pcard" style="--cat:#8b98a9">
+        <span class="chip mb-3 self-start" style="border-color:#8b98a933"><span class="dot" style="background:#8b98a9"></span><span data-l="ru">Системное и CLI</span><span data-l="en">Systems &amp; CLI</span><span data-l="uk">Системне та CLI</span></span>
+        <h3 class="pcard-title">disk_data_rs</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Инструмент мониторинга дисков в реальном времени — как CrystalDiskInfo, но для терминала.</span><span data-l="en">A real-time disk-monitoring tool — like CrystalDiskInfo, but for the terminal.</span><span data-l="uk">Інструмент моніторингу дисків у реальному часі — як CrystalDiskInfo, але для термінала.</span></p>
+      </a>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-line-soft mt-24">
+  <div class="wrap py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2.5">
+      <span class="grid h-8 w-8 place-items-center rounded-lg font-mono text-xs font-bold text-white" style="background:linear-gradient(135deg,var(--color-brand),var(--color-violet))">AM</span>
+      <span class="text-sm text-muted">© 2026 Alex Melan</span>
+    </div>
+    <p class="text-xs text-faint"><span data-l="ru">Сайт собран статически, исходники на GitHub.</span><span data-l="en">Statically generated, sources on GitHub.</span><span data-l="uk">Сайт зібраний статично, вихідники на GitHub.</span></p>
+    <a href="https://github.com/AlexMelanFromRingo" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors"><svg class="" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.5-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.1 1.7 4.9 2.1 4.9 2.1a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.5 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/></svg> AlexMelanFromRingo</a>
+  </div>
+</footer>
+<button id="toTop" class="fixed bottom-7 right-7 z-40 grid h-12 w-12 place-items-center rounded-full text-white opacity-0 pointer-events-none transition-all duration-300" style="background:linear-gradient(135deg,var(--color-brand),var(--color-violet));box-shadow:0 10px 28px -8px rgba(76,141,255,.6)" aria-label="Наверх"><svg class="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>

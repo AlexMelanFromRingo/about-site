@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIP39 GPU — Alex Melan</title>
+<meta name="description" content="Библиотека и CLI для работы с мнемоническими фразами BIP39 с ускорением на GPU через OpenCL.">
+<meta name="author" content="Alex Melan">
+<meta property="og:title" content="BIP39 GPU — Alex Melan">
+<meta property="og:description" content="Библиотека и CLI для работы с мнемоническими фразами BIP39 с ускорением на GPU через OpenCL.">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var l=localStorage.getItem('lang');if(['ru','en','uk'].indexOf(l)<0)l='ru';d.setAttribute('data-lang',l);d.setAttribute('lang',l);}catch(e){}})();</script>
+</head>
+<body><header class="nav" id="nav">
+  <div class="wrap flex items-center justify-between h-16">
+    <a href="../index.html" class="flex items-center gap-2.5 group">
+      <span class="grid h-9 w-9 place-items-center rounded-xl font-mono font-bold text-white" style="background:linear-gradient(135deg,var(--color-brand),var(--color-violet))">AM</span>
+      <span class="hidden sm:block font-semibold tracking-tight">Alex&nbsp;Melan</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="../index.html#about" class="nav-link"><span data-l="ru">Обо мне</span><span data-l="en">About</span><span data-l="uk">Про мене</span></a>
+      <a href="../index.html#projects" class="nav-link"><span data-l="ru">Проекты</span><span data-l="en">Projects</span><span data-l="uk">Проєкти</span></a>
+      <a href="../index.html#contact" class="nav-link"><span data-l="ru">Контакты</span><span data-l="en">Contacts</span><span data-l="uk">Контакти</span></a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="uk">UA</button>
+      </div>
+      <a href="https://github.com/AlexMelanFromRingo" target="_blank" rel="noopener" class="grid h-9 w-9 place-items-center rounded-lg border border-line bg-surface/60 text-muted transition-colors hover:text-fg hover:border-brand/50" aria-label="GitHub"><svg class="" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.5-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.1 1.7 4.9 2.1 4.9 2.1a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.5 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/></svg></a>
+      <button class="md:hidden grid h-9 w-9 place-items-center rounded-lg border border-line bg-surface/60 text-muted" id="menuBtn" aria-label="Меню"><svg class="" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+  <div class="md:hidden hidden border-t border-line-soft bg-ink-soft" id="mobileMenu">
+    <div class="wrap flex flex-col py-3">
+      <a href="../index.html#about" class="py-2.5 text-sm text-muted"><span data-l="ru">Обо мне</span><span data-l="en">About</span><span data-l="uk">Про мене</span></a>
+      <a href="../index.html#projects" class="py-2.5 text-sm text-muted"><span data-l="ru">Проекты</span><span data-l="en">Projects</span><span data-l="uk">Проєкти</span></a>
+      <a href="../index.html#contact" class="py-2.5 text-sm text-muted"><span data-l="ru">Контакты</span><span data-l="en">Contacts</span><span data-l="uk">Контакти</span></a>
+    </div>
+  </div>
+</header>
+<main class="pt-24">
+  <div class="wrap py-6">
+    <a href="../index.html#projects" class="inline-flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors"><svg class="" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M19 12H5"/></svg> <span data-l="ru">Все проекты</span><span data-l="en">All projects</span><span data-l="uk">Усі проєкти</span></a>
+  </div>
+
+  <article class="wrap">
+    <header class="border-b border-line-soft pb-8">
+      <div class="flex flex-wrap items-center gap-2.5 mb-5">
+        <span class="chip" style="border-color:#f7c94855;color:#f7c948"><svg class="" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M16.5 3.8a6 6 0 0 1 0 11.4M9 6v6M6.5 9h5"/></svg> <span data-l="ru">Блокчейн и криптовалюты</span><span data-l="en">Blockchain &amp; cryptocurrencies</span><span data-l="uk">Блокчейн та криптовалюти</span></span>
+        <span class="flex items-center gap-1.5 font-mono text-xs" style="color:#56d364"><span class="dot" style="background:#56d364"></span><span data-l="ru">Завершён</span><span data-l="en">Completed</span><span data-l="uk">Завершений</span></span>
+        <span class="font-mono text-xs text-faint">2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">BIP39 GPU</h1>
+      <p class="mt-1 font-mono text-sm text-faint">Мнемоники на GPU</p>
+      <p class="mt-4 max-w-2xl text-lg text-muted leading-relaxed"><span data-l="ru">Библиотека и CLI для работы с мнемоническими фразами BIP39 с ускорением на GPU через OpenCL.</span><span data-l="en">A library and CLI for BIP39 mnemonic phrases with GPU acceleration via OpenCL.</span><span data-l="uk">Бібліотека та CLI для роботи з мнемонічними фразами BIP39 з прискоренням на GPU через OpenCL.</span></p>
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <a href="https://github.com/AlexMelanFromRingo/BIP39-GPU" target="_blank" rel="noopener" class="btn btn-primary"><svg class="" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.5-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.1 1.7 4.9 2.1 4.9 2.1a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.5 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/></svg> <span data-l="ru">Открыть на GitHub</span><span data-l="en">View on GitHub</span><span data-l="uk">Відкрити на GitHub</span></a>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">Python</span><span class="tag">OpenCL</span></div>
+      </div>
+    </header>
+
+    <div class="grid lg:grid-cols-[1fr_280px] gap-10 py-10">
+      <div class="prose-block">
+        <h2><span data-l="ru">О проекте</span><span data-l="en">Overview</span><span data-l="uk">Про проєкт</span></h2>
+        <p data-l="ru">BIP39 — стандарт мнемонических фраз, которыми защищены криптокошельки: 12-24 слова вместо нечитаемого ключа. Эта библиотека умеет генерировать, проверять и преобразовывать такие фразы в зерно — и на CPU, и с ускорением на GPU через OpenCL.</p><p data-l="ru">Опубликована как полноценная Python-библиотека с CLI, документацией и набором из 128 тестов. Хороший пример доведённого до релиза инструмента.</p><p data-l="en">BIP39 is the mnemonic-phrase standard that protects crypto wallets: 12-24 words instead of an unreadable key. This library can generate, validate and convert such phrases into a seed — both on CPU and GPU-accelerated via OpenCL.</p><p data-l="en">Published as a full Python library with a CLI, documentation and a suite of 128 tests. A good example of a tool taken all the way to release.</p><p data-l="uk">BIP39 — стандарт мнемонічних фраз, якими захищені криптогаманці: 12-24 слова замість нечитабельного ключа. Ця бібліотека вміє генерувати, перевіряти й перетворювати такі фрази на зерно — і на CPU, і на GPU через OpenCL.</p><p data-l="uk">Опублікована як повноцінна Python-бібліотека з CLI, документацією та 128 тестами.</p>
+        
+      </div>
+      <aside class="space-y-1 lg:border-l lg:border-line-soft lg:pl-8 h-fit">
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Категория</span><span data-l="en">Category</span><span data-l="uk">Категорія</span></span><span class="font-medium" style="color:#f7c948"><span data-l="ru">Блокчейн и криптовалюты</span><span data-l="en">Blockchain &amp; cryptocurrencies</span><span data-l="uk">Блокчейн та криптовалюти</span></span></div>
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Статус</span><span data-l="en">Status</span><span data-l="uk">Статус</span></span><span class="font-medium" style="color:#56d364"><span data-l="ru">Завершён</span><span data-l="en">Completed</span><span data-l="uk">Завершений</span></span></div>
+        <div class="meta-row"><span class="text-faint"><span data-l="ru">Год</span><span data-l="en">Year</span><span data-l="uk">Рік</span></span><span class="font-mono">2026</span></div>
+        <div class="pt-5">
+          <div class="text-faint text-sm mb-2"><span data-l="ru">Технологии</span><span data-l="en">Tech stack</span><span data-l="uk">Технології</span></div>
+          <div class="flex flex-wrap gap-1.5"><span class="tag">Python</span><span class="tag">OpenCL</span></div>
+        </div>
+        <div class="pt-4"><div class="text-faint text-sm mb-2"><span data-l="ru">Теги</span><span data-l="en">Tags</span><span data-l="uk">Теги</span></div><div class="flex flex-wrap gap-1.5"><span class="chip">BIP39</span><span class="chip">GPU</span><span class="chip">OpenCL</span><span class="chip">Кошельки</span></div></div>
+      </aside>
+    </div>
+  </article>
+  <section class="wrap py-10">
+    <h2 class="text-lg font-semibold mb-5"><span data-l="ru">Похожие проекты</span><span data-l="en">Related projects</span><span data-l="uk">Схожі проєкти</span></h2>
+    <div class="grid gap-4 sm:grid-cols-3">
+      <a href="scam.html" class="pcard" style="--cat:#f7c948">
+        <span class="chip mb-3 self-start" style="border-color:#f7c94833"><span class="dot" style="background:#f7c948"></span><span data-l="ru">Блокчейн и криптовалюты</span><span data-l="en">Blockchain &amp; cryptocurrencies</span><span data-l="uk">Блокчейн та криптовалюти</span></span>
+        <h3 class="pcard-title">Project S.C.A.M.</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Собственная криптовалюта с максимально простым функционалом — чтобы разобрался даже новичок.</span><span data-l="en">My own cryptocurrency with deliberately simple functionality — so even a beginner can grasp it.</span><span data-l="uk">Власна криптовалюта з максимально простим функціоналом — щоб розібрався навіть новачок.</span></p>
+      </a>
+<a href="micro-blockchain.html" class="pcard" style="--cat:#f7c948">
+        <span class="chip mb-3 self-start" style="border-color:#f7c94833"><span class="dot" style="background:#f7c948"></span><span data-l="ru">Блокчейн и криптовалюты</span><span data-l="en">Blockchain &amp; cryptocurrencies</span><span data-l="uk">Блокчейн та криптовалюти</span></span>
+        <h3 class="pcard-title">MicroChain</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Минимальный UTXO-блокчейн и криптовалюта на Rust — компактно и понятно, с TUI-кошельком.</span><span data-l="en">A minimal UTXO blockchain and cryptocurrency in Rust — compact and clear, with a TUI wallet.</span><span data-l="uk">Мінімальний UTXO-блокчейн і криптовалюта на Rust — компактно й зрозуміло, з TUI-гаманцем.</span></p>
+      </a>
+<a href="bitcoin-fork-factory.html" class="pcard" style="--cat:#f7c948">
+        <span class="chip mb-3 self-start" style="border-color:#f7c94833"><span class="dot" style="background:#f7c948"></span><span data-l="ru">Блокчейн и криптовалюты</span><span data-l="en">Blockchain &amp; cryptocurrencies</span><span data-l="uk">Блокчейн та криптовалюти</span></span>
+        <h3 class="pcard-title">Bitcoin Fork Factory</h3>
+        <p class="mt-2 text-sm text-muted"><span data-l="ru">Инструментарий для автоматизированного создания хардфорков Bitcoin.</span><span data-l="en">A toolkit for automated generation of Bitcoin hard forks.</span><span data-l="uk">Інструментарій для автоматизованого створення хардфорків Bitcoin.</span></p>
+      </a>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-line-soft mt-24">
+  <div class="wrap py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2.5">
+      <span class="grid h-8 w-8 place-items-center rounded-lg font-mono text-xs font-bold text-white" style="background:linear-gradient(135deg,var(--color-brand),var(--color-violet))">AM</span>
+      <span class="text-sm text-muted">© 2026 Alex Melan</span>
+    </div>
+    <p class="text-xs text-faint"><span data-l="ru">Сайт собран статически, исходники на GitHub.</span><span data-l="en">Statically generated, sources on GitHub.</span><span data-l="uk">Сайт зібраний статично, вихідники на GitHub.</span></p>
+    <a href="https://github.com/AlexMelanFromRingo" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors"><svg class="" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.5-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.1 1.7 4.9 2.1 4.9 2.1a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.5 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/></svg> AlexMelanFromRingo</a>
+  </div>
+</footer>
+<button id="toTop" class="fixed bottom-7 right-7 z-40 grid h-12 w-12 place-items-center rounded-full text-white opacity-0 pointer-events-none transition-all duration-300" style="background:linear-gradient(135deg,var(--color-brand),var(--color-violet));box-shadow:0 10px 28px -8px rgba(76,141,255,.6)" aria-label="Наверх"><svg class="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>
