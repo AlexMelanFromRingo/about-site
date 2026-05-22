@@ -277,31 +277,4 @@ module.exports = [
       uk: ["Кириличний синтаксис, файли з розширенням .хуя", "Компіляція в нативний бінарник x86-64 через fasm (Linux)", "Кросплатформений інтерпретатор проміжного представлення", "Компілятор написаний на Rust", "Мій внесок: рефакторинг кодової бази та завершення TODO оригінального автора"],
     },
   },
-  {
-    id: "freemarks", name: "FreeMarks", aka: "Слабая цензура персональных данных",
-    category: "crypto", status: "done", year: 2024,
-    langs: ["Python"], tags: ["Приватность", "Демонстрация уязвимости", "Парсинг", "Веб"],
-    short: {
-      ru: "Демонстрация того, как примитивная «цензура» личных данных в опубликованных оценках легко обходится.",
-      en: "A demonstration of how the primitive 'censorship' of personal data in published grades is easily reversed.",
-      uk: "Демонстрація того, як примітивна «цензура» особистих даних в опублікованих оцінках легко обходиться.",
-    },
-    body: {
-      ru: [
-        "Университет публикует ведомости с оценками и «закрывает» в них ФИО и личные данные студентов. FreeMarks показывает, что это сокрытие примитивно и обратимо: проект извлекает оценки из методички и сопоставляет данные обратно, обходя наивную цензуру.",
-        "Сделан не ради злоупотребления, а как наглядная демонстрация проблемы. Это аргумент в споре о том, что текущий способ защиты персональных данных в публичных ведомостях не работает — если убрать данные так слабо, их легко восстановить.",
-        "По духу проект продолжает мою линию ответственного отношения к найденным проблемам: показать, что система дырявая, чтобы её починили, — а не воспользоваться этим тихо. Тот же принцип, что и в аудите онлайн-зачётки.",
-      ],
-      en: [
-        "The university publishes grade sheets and 'redacts' students' names and personal data in them. FreeMarks shows that this redaction is primitive and reversible: the project extracts grades and maps the data back, bypassing the naive censorship.",
-        "It was built not to abuse but as a clear demonstration of the problem. It's an argument that the current way of protecting personal data in public grade sheets doesn't work — if you remove data that weakly, it's easy to restore.",
-        "In spirit the project continues my line of responsible handling of discovered problems: show that a system is leaky so it gets fixed, rather than quietly exploiting it. The same principle as in the online-gradebook audit.",
-      ],
-      uk: [
-        "Університет публікує відомості з оцінками й «закриває» в них ПІБ та особисті дані студентів. FreeMarks показує, що це приховування примітивне й оборотне: проєкт витягує оцінки й зіставляє дані назад, обходячи наївну цензуру.",
-        "Зроблено не заради зловживання, а як наочна демонстрація проблеми — поточний спосіб захисту персональних даних у публічних відомостях не працює.",
-        "За духом проєкт продовжує мою лінію відповідального ставлення до знайдених проблем: показати, що система дірява, щоб її полагодили. Той самий принцип, що і в аудиті онлайн-заліковки.",
-      ],
-    },
-  },
 ];
